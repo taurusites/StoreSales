@@ -1,0 +1,46 @@
+﻿@model IEnumerable<StoreSales.Models.Sales>
+@{
+    ViewBag.Title = "Sales for All Stores";
+}
+
+<h2>Credit Card Sales for all Stores</h2>
+<p>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.Label("Start Date :") @Html.TextBox("BeginDate", ViewBag.BeginDate as string, new { @type = "date" })<br />
+        @Html.Label("End Date   :") @Html.TextBox("EndDate", ViewBag.EndDate as string, new { @type = "date" })<br />
+        @Html.Label("Filter By Register:") @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)<br />
+        <input class="btn btn-default" type="submit" value="Search" />
+
+    }
+    <br />
+    @using (Html.BeginForm("ExportSales", "Home", FormMethod.Post))
+    {
+        @Html.TextBox("BegDate", ViewBag.BeginDate as string, new { @type = "hidden" })
+        @Html.TextBox("EggDate", ViewBag.EndDate as string, new { @type = "hidden" })
+        @Html.TextBox("SegStr", ViewBag.CurrentFilter as string, new { @type = "hidden" })
+        <input class="btn btn-info" type="submit" value="Download CSV" />
+    }
+    <br />
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.RecModDate.Date)</th>
+                <th>@Html.DisplayNameFor(m => m.tranno)</th>
+                <th>@Html.DisplayNameFor(m => m.registerid)</th>
+                <th align="right">@Html.DisplayNameFor(m => m.TenderAmount)</th>
+                <th>@Html.DisplayNameFor(m => m.ID1)</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.RecModDate)</td>
+                <td>@Html.DisplayFor(m => item.tranno)</td>
+                <td>@Html.DisplayFor(m => item.registerid)</td>
+                <td align="right">@Html.DisplayFor(m => item.TenderAmount)</td>
+                <td>@Html.DisplayFor(m => item.ID1)</td>
+            </tr>
+        }
+    </table>
+</p>
