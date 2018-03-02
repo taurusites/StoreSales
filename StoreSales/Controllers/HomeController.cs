@@ -19,8 +19,8 @@ namespace StoreSales.Controllers
 
             if (String.IsNullOrEmpty(beginDate) || String.IsNullOrEmpty(endDate))
             {
-                beginDate = DateTime.Today.Date.AddDays(-1).ToString("d");
-                endDate = DateTime.Today.Date.ToString("d");
+                beginDate = DateTime.Today.Date.AddDays(-1).ToString("yyyy-MM-dd");
+                endDate = DateTime.Today.Date.ToString("yyyy-MM-dd");
             }
 
             ViewBag.BeginDate = beginDate;
@@ -112,7 +112,7 @@ namespace StoreSales.Controllers
         {
             if (String.IsNullOrEmpty(asonDate))
             {
-                asonDate = DateTime.Today.ToString("d");
+                asonDate = DateTime.Today.ToString("yyyy-MM-dd");
             }
 
             ViewBag.AsOnDate = asonDate;

@@ -10,13 +10,14 @@
     @Html.Label("Date :") @Html.TextBox("Asondate", ViewBag.Asondate as string, new { @type = "date" })
     <br /><input class="btn btn-default" type="submit" value="Get Report" />
 }
-
+<br/>
 @using (Html.BeginForm("ExportMonthlySales","Home",FormMethod.Post))
 {
     @Html.TextBox("Adate",ViewBag.Asondate as string, new { @type="hidden"})
     <input class="btn btn-info" type="submit" value="Download CSV" /><br />
 }
 
+<br/>
 <p>
     <table class="table table-bordered table-condensed table-striped">
         <thead>
