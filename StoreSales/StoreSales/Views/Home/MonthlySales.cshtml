@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StoreSales.Models.MonthlySales>
+@{
+    ViewBag.Title = "Monthly Sales";
+}
+
+<h2>Monthly Sales</h2>
+
+@using (Html.BeginForm("MonthlySales", "Home", FormMethod.Get))
+{
+    @Html.Label("Date :") @Html.TextBox("Asondate", ViewBag.Asondate as string, new { @type = "date" })
+    <br /><input class="btn btn-default" type="submit" value="Get Report" />
+}
+<br/>
+@using (Html.BeginForm("ExportMonthlySales","Home",FormMethod.Post))
+{
+    @Html.TextBox("Adate",ViewBag.Asondate as string, new { @type="hidden"})
+    <input class="btn btn-info" type="submit" value="Download CSV" /><br />
+}
+
+<br/>
+<p>
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Store</th>
+                <th>Sales as on date</th>
+                <th>Monthly sales as on date </th>
+                <th>Yearly Sales as on date</th>
+                <th>Monthly sales last year</th>
+                <th>Total sales last year as on date</th>
+                <th>Sales of the last year following month</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.Location)</td>
+                <td>@Html.DisplayFor(m => item.TotalAsOnDate)</td>
+                <td>@Html.DisplayFor(m => item.TotalSalesThisMonth)</td>
+                <td>@Html.DisplayFor(m => item.TotalSalesThisYear)</td>
+                <td>@Html.DisplayFor(m => item.SalesThisMonthLastYear)</td>
+                <td>@Html.DisplayFor(m => item.TotalSalesLastYearTillDate)</td>
+                <td>@Html.DisplayFor(m => item.SalesLastYearNextMonth)</td>
+            </tr>
+        }
+    </table>
+</p>
