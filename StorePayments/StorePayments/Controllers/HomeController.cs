@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace StorePayments.Models
+
+namespace StorePayments.Controllers
 {
     public class HomeController : Controller
     {
