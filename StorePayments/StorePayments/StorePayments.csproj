@@ -124,11 +124,18 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BackOfficeController.cs" />
+    <Compile Include="Controllers\StateNamesController.cs" />
+    <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\AddressTable.cs" />
+    <Compile Include="Models\DbDataContext.cs" />
+    <Compile Include="Models\StateNames.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +148,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\BackOffice\Index.cshtml" />
+    <Content Include="Views\Stores\Index.cshtml" />
+    <Content Include="Views\StateNames\Create.cshtml" />
+    <Content Include="Views\StateNames\Delete.cshtml" />
+    <Content Include="Views\StateNames\Details.cshtml" />
+    <Content Include="Views\StateNames\Edit.cshtml" />
+    <Content Include="Views\StateNames\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -150,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
