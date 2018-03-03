@@ -9,6 +9,8 @@ namespace StorePayments
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/validation").Include(
+                "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                 "~/Scripts/modernizr-{version}.js"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(

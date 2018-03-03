@@ -7,6 +7,10 @@ namespace StorePayments.Models
     {
         public DbDataContext() : base("name=DefaultConnection") { }
 
-        public System.Data.Entity.DbSet<StorePayments.Models.StateNames> StateNames { get; set; }
+        public DbSet<StateNames> StateNames { get; set; }
+        public DbSet<AddressTable> AddressesTable { get; set; }
+        public DbSet<Store> Stores { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
